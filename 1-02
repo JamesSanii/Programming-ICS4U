@@ -1,3 +1,9 @@
+ * Created by: James Sanii
+ * Created on: Mar 2016
+ * This program calculates the number of logs that will fit on a truck,
+ *     if you know their length
+ *
+ ****************************************************************************/
 import java.util.Scanner;
 
 public class LogProblemCalc {
@@ -30,4 +36,4 @@ public class LogProblemCalc {
 		System.out.print("	The truck can carry " + numberOfLogs + " logs." );
 	}else System.out.println("Rerun program and enter a valid number ");
 		
-	}
+	}}
