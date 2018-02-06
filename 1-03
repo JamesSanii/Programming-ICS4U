@@ -1,0 +1,26 @@
+/****************************************************************************
+ *
+ * Created by: James Sanii
+ * Created on: Feb 2016
+ * This program calculates the amount of energy released based off weight
+ *
+ ****************************************************************************/
+ import java.util.Scanner;
+
+public class SpeedOfLight {
+
+	public static void main(String[] args) {
+		// // calc for log problem
+	System.out.println("type mass to get energy output");
+	// company number variable
+	double speedOfLight = (2.998 * Math.pow(10, 8));
+	int massOfObject = -1;
+	Scanner input = new Scanner( System.in );
+	massOfObject =  input.nextInt(); 
+	if (massOfObject > 0){ 
+		double energyOutput = massOfObject * speedOfLight * speedOfLight;
+		System.out.print("	The energy output is " + energyOutput + " J." );
+	}else System.out.println("Rerun program and enter a valid number ");
+		
+	}}
+	
