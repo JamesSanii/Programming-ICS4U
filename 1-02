@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class LogProblemCalc {
+
+	public static void main(String[] args) {
+		// // calc for log problem
+	System.out.println("Company one logs are 1 meter long, "
+			+ "Company two logs are 0.5 meters long, "
+			+ "Company three logs are 0.25 meters long"
+			+ "Which company would like to order from, type 1, 2,"
+			+ " 3 for the corresponding company");
+	// company number variable
+	int companyNumber = 0;
+	int maxWeight = 1100000;
+	int weightPerCentimeter = 200;
+	int logLength = 1;
+	Scanner input = new Scanner( System.in );
+	companyNumber =  input.nextInt(); 
+	if (companyNumber == 1){ 
+		logLength = 100;
+		int numberOfLogs = maxWeight/(weightPerCentimeter * logLength);
+		System.out.print("	The truck can carry " + numberOfLogs + " logs." );
+	}else if (companyNumber == 2){ 
+		logLength = (int) 50;
+		int numberOfLogs = maxWeight/(weightPerCentimeter * logLength);
+		System.out.print("	The truck can carry " + numberOfLogs + " logs." );
+    }else if (companyNumber == 3){ 
+		logLength = (int) 25;
+		int numberOfLogs = maxWeight/(weightPerCentimeter * logLength);
+		System.out.print("	The truck can carry " + numberOfLogs + " logs." );
+	}else System.out.println("Rerun program and enter a valid number ");
+		
+	}
