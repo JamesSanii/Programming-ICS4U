@@ -1,0 +1,85 @@
+/****************************************************************************
+ *
+ * Created by: James Sanii
+ * Created on: Feb 2016
+ * This program calculates the amount of energy released based off weight
+ *
+ ****************************************************************************/
+ import java.util.Scanner;
+
+public class WarmUpJava {
+
+	public static void main(String[] args) {
+		// // calc for log problem
+	System.out.println("type what type of food that is being warmed up"
+			+ "type 1 for pizza, type 2 for sub, type 3 for soup");
+	// company number variable
+	Scanner input = new Scanner( System.in );
+	int foodType = input.nextInt(); 
+	if (foodType == 1){ 
+		int initialWarmUpTime = 45;
+		System.out.print("	The food you chose was pizza." );
+		System.out.println("How many are being warmed up, 1,2 or 3.");
+		Scanner inputTwo = new Scanner( System.in );
+		int howManyFoods =  inputTwo.nextInt(); 
+		if (howManyFoods == 1){ 
+			double timeModifier = 1;
+			double warmUpTime = initialWarmUpTime * timeModifier;
+			System.out.print("	Warm up for " + warmUpTime +
+					" seconds." );
+		}else if (howManyFoods == 2){ 
+			double timeModifier = 1.5;
+			double warmUpTime = initialWarmUpTime * timeModifier;
+			System.out.print("	Warm up for " + warmUpTime + 
+					" seconds." );
+	    }else if (howManyFoods == 3){ 
+	    	double timeModifier = 2;
+			double warmUpTime = initialWarmUpTime * timeModifier;
+			System.out.print("	Warm up for " + warmUpTime + ""
+					+ " seconds." );
+		}else System.out.println("Rerun program and enter a valid number ");
+		
+	}else if (foodType == 2){ 
+		int initialWarmUpTime = 60;
+		System.out.print("	The food you chose was subs." );
+		Scanner inputTwo = new Scanner( System.in );
+		int howManyFoods =  inputTwo.nextInt(); 
+		if (howManyFoods == 1){ 
+			double timeModifier = 1;
+			double warmUpTime = initialWarmUpTime * timeModifier;
+			System.out.print("	Warm up for " + warmUpTime +
+					" seconds." );
+		}else if (howManyFoods == 2){ 
+			double timeModifier = 1.5;
+			double warmUpTime = initialWarmUpTime * timeModifier;
+			System.out.print("	Warm up for " + warmUpTime + 
+					" seconds." );
+	    }else if (howManyFoods == 3){ 
+	    	double timeModifier = 2;
+			double warmUpTime = initialWarmUpTime * timeModifier;
+			System.out.print("	Warm up for " + warmUpTime + ""
+					+ " seconds." );
+		}else System.out.println("Rerun program and enter a valid number ");
+    }else if (foodType == 3){ 
+    	int initialWarmUpTime = 105;
+		System.out.print("	The food you chose was soup." );
+		Scanner inputTwo = new Scanner( System.in );
+		int howManyFoods =  inputTwo.nextInt(); 
+		if (howManyFoods == 1){ 
+			double timeModifier = 1;
+			double warmUpTime = initialWarmUpTime * timeModifier;
+			System.out.print("	Warm up for " + warmUpTime +
+					" seconds." );
+		}else if (howManyFoods == 2){ 
+			double timeModifier = 1.5;
+			double warmUpTime = initialWarmUpTime * timeModifier;
+			System.out.print("	Warm up for " + warmUpTime + 
+					" seconds." );
+	    }else if (howManyFoods == 3){ 
+	    	double timeModifier = 2;
+			double warmUpTime = initialWarmUpTime * timeModifier;
+			System.out.print("	Warm up for " + warmUpTime + ""
+					+ " seconds." );
+		}else System.out.println("Rerun program and enter a valid number ");
+	}else System.out.println("Rerun program and enter a valid number ");
+	}}
