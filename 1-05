@@ -1,0 +1,23 @@
+/****************************************************************************
+ *
+ * Created by: James Sanii
+ * Created on: Feb 2016
+ * Role a dice guess what you roled
+ *
+ ****************************************************************************/
+ import java.util.Scanner;
+public class DiceGame {
+
+	public static void main(String[] args) {
+		int diceValue = (int)(Math.random()*6) + 1;
+		int guessCounter = 1;
+		System.out.println("I have roled a dice, guess what it has landed on");
+		Scanner userInput = new Scanner( System.in );
+		int userNumberGuess =  userInput.nextInt(); 
+		while (userNumberGuess != diceValue ) {
+			guessCounter = guessCounter + 1;
+			System.out.println("You Guessed Wrong! Enter a new guess.");
+			userNumberGuess =  userInput.nextInt(); }
+		System.out.println("Correct! It took you " + guessCounter + " guesses." );
+		userInput.close();
+}}
