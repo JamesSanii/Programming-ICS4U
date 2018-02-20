@@ -1,0 +1,104 @@
+//
+
+//  FileName.swift
+
+//  What does this file do
+
+//
+
+//  Created by James Sanii on 19/02/18.
+
+//  Copyright © 2018 MTHS. All rights reserved.
+
+//
+
+
+
+//get user input string
+
+var user_input_string = readLine()!
+// get length of string
+var user_input_length = user_input_string.count
+// used for figuring out what character in the string 
+var character_counter = 0
+// used to make sure loops go proper length
+var loop_counter = 0
+// numbers as character constants for later character to character comparison
+let zero_constant: Character = "0"
+let one_constant: Character = "1"
+let two_constant: Character = "2"
+let three_constant: Character = "3"
+let four_constant: Character = "4"
+let five_constant: Character = "5"
+let six_constant: Character = "6"
+let seven_constant: Character = "7"
+let eight_constant: Character = "8"
+let nine_constant: Character = "9"
+// output string creation
+var new_string = ""
+// takes user input and turns it into an array of characters
+let characters = Array(user_input_string)
+// loop that mods characters if they are numbers
+while(character_counter < user_input_length - 1){
+	if characters[character_counter] == zero_constant{
+		character_counter = character_counter + 1}
+	else if characters[character_counter] == one_constant{
+		new_string.append(characters[character_counter + 1])
+		character_counter = character_counter + 1}
+	else if characters[character_counter] == two_constant{
+		character_counter = character_counter + 1
+		while loop_counter < 2 {
+			new_string.append(characters[character_counter])
+			loop_counter = loop_counter + 1}
+		loop_counter = 0}
+	else if characters[character_counter] == three_constant{
+		character_counter = character_counter + 1
+		while loop_counter < 3 {
+			new_string.append(characters[character_counter])
+			loop_counter = loop_counter + 1}
+		loop_counter = 0}
+	else if characters[character_counter] == four_constant{
+		character_counter = character_counter + 1
+		while loop_counter < 4 {
+			new_string.append(characters[character_counter])
+			loop_counter = loop_counter + 1}
+		loop_counter = 0}
+	else if characters[character_counter] == five_constant{
+		character_counter = character_counter + 1
+		while loop_counter < 5 {
+			new_string.append(characters[character_counter])
+			loop_counter = loop_counter + 1}
+		loop_counter = 0}
+	else if characters[character_counter] == six_constant{
+		character_counter = character_counter + 1
+		while loop_counter < 6 {
+			new_string.append(characters[character_counter])
+			loop_counter = loop_counter + 1}
+		loop_counter = 0}
+	else if characters[character_counter] == seven_constant{
+		character_counter = character_counter + 1
+		while loop_counter < 7 {
+			new_string.append(characters[character_counter])
+			loop_counter = loop_counter + 1}
+		loop_counter = 0}
+	else if characters[character_counter] == eight_constant{
+		character_counter = character_counter + 1
+		while loop_counter < 8 {
+			new_string.append(characters[character_counter])
+			loop_counter = loop_counter + 1}
+		loop_counter = 0}
+	else if characters[character_counter] == nine_constant{
+		character_counter = character_counter + 1
+		while loop_counter < 9 {
+			new_string.append(characters[character_counter])
+			loop_counter = loop_counter + 1}
+		loop_counter = 0}
+	else {
+		new_string.append(characters[character_counter])
+		character_counter = character_counter + 1}
+}
+// add last character to string
+new_string.append(characters[character_counter])
+// prints user input and output
+print("input was " + user_input_string)
+print(new_string)
