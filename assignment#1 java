@@ -1,0 +1,121 @@
+/****************************************************************************
+ *
+ * Created by: James Sanii
+ * Created on: Feb 2016
+ * Each digit 0-9 that appears in the original string is replaced by 
+ * that many occurrences of the character to the right of the digit.
+ *
+ ****************************************************************************/
+
+
+
+package assignment1take2;
+import java.util.Scanner;
+public class StringModAssignment {
+	public static void main(String[] args) {
+		// gives instructions to user
+	System.out.println(" each digit 0-9 that appears in the original string is replaced by "
+			+ "that many occurrences of the character to the right of the digit.");
+	System.out.println(" Please enter random jibberish");
+	//get user input
+		Scanner input = new Scanner( System.in );
+		String userInputString = input.nextLine();
+		input.close();
+		//get length of user input
+		int inputLength = userInputString.length();
+		//create counter variables for loops
+		int characterCounter = 0;
+		int loopCounter = 0;
+		// number constants for later string compare logic sequence
+		String zeroConstant = "0";
+		String oneConstant = "1";
+		String twoConstant = "2";
+		String threeConstant = "3";
+		String fourConstant = "4";
+		String fiveConstant = "5";
+		String sixConstant = "6";
+		String sevenConstant = "7";
+		String eightConstant = "8";
+		String nineConstant = "9";
+		//loop that changes all numbers in sequence with exception of the last character
+		while(characterCounter < inputLength-1 ) {
+			String currentCharacter = Character.toString(userInputString.charAt(characterCounter));
+			if (currentCharacter.equals(zeroConstant)) {
+				characterCounter = characterCounter + 1;
+			} 
+			else if (currentCharacter.equals(oneConstant)) {
+				characterCounter = characterCounter + 1;
+				char nextCharacter = userInputString.charAt(characterCounter);
+				System.out.print(nextCharacter);
+				
+			} 
+			else if (currentCharacter.equals(twoConstant)) {
+				characterCounter = characterCounter + 1;
+				char nextCharacter = userInputString.charAt(characterCounter);
+				while(loopCounter != 2) {
+					System.out.print(nextCharacter);
+					loopCounter = loopCounter + 1;}
+				loopCounter = 0;
+			} 
+			else if (currentCharacter.equals(threeConstant)) {
+				characterCounter = characterCounter + 1;
+				char nextCharacter = userInputString.charAt(characterCounter);
+				while(loopCounter != 3) {
+					System.out.print(nextCharacter);
+					loopCounter = loopCounter + 1;}
+				loopCounter = 0;
+			} 
+			else if (currentCharacter.equals(fourConstant)) {
+				characterCounter = characterCounter + 1;
+				char nextCharacter = userInputString.charAt(characterCounter);
+				while(loopCounter != 4) {
+					System.out.print(nextCharacter);
+					loopCounter = loopCounter + 1;}
+				loopCounter = 0;
+			} 
+			else if (currentCharacter.equals(fiveConstant)) {
+				characterCounter = characterCounter + 1;
+				char nextCharacter = userInputString.charAt(characterCounter);
+				while(loopCounter != 5) {
+					System.out.print(nextCharacter);
+					loopCounter = loopCounter + 1;}
+				loopCounter = 0;
+			} 
+			else if (currentCharacter.equals(sixConstant)) {
+				characterCounter = characterCounter + 1;
+				char nextCharacter = userInputString.charAt(characterCounter);
+				while(loopCounter != 6) {
+					System.out.print(nextCharacter);
+					loopCounter = loopCounter + 1;}
+				loopCounter = 0;
+			} 
+			else if (currentCharacter.equals(sevenConstant)) {characterCounter = characterCounter + 1;
+				char nextCharacter = userInputString.charAt(characterCounter);
+				while(loopCounter != 7) {
+					System.out.print(nextCharacter);
+					loopCounter = loopCounter + 1;}
+				loopCounter = 0;
+			} 
+			else if (currentCharacter.equals(eightConstant)) {characterCounter = characterCounter + 1;
+				char nextCharacter = userInputString.charAt(characterCounter);
+				while(loopCounter != 8) {
+					System.out.print(nextCharacter);
+					loopCounter = loopCounter + 1;}
+				loopCounter = 0;
+			} 
+			else if (currentCharacter.equals(nineConstant)) {characterCounter = characterCounter + 1;
+				char nextCharacter = userInputString.charAt(characterCounter);
+				while(loopCounter != 9) {
+					System.out.print(nextCharacter);
+					loopCounter = loopCounter + 1;}
+				loopCounter = 0;
+			} 
+			else {
+				System.out.print(currentCharacter);
+				characterCounter = characterCounter + 1;
+			}}
+		// Last character which is not in the loop is printed since the last character 
+		// stays constant whether it is a number or not
+		char lastCharacter = (userInputString.charAt(inputLength-1));
+		System.out.print(lastCharacter);
+}}
