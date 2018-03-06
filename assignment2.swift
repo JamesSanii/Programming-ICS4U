@@ -11,7 +11,7 @@ srand(UInt32(time(nil)))
 var isUserChoiceValid = false
 var computerChoice = ""
 var userChoice: String?
-var computerChoiceInt = (Int(random()%(3) + 1))
+let computerChoiceInt = (Int(random()%(3) + 1))
 
 if computerChoiceInt == 1{
 	computerChoice = "Rock"}
