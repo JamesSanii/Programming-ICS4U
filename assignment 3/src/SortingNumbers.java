@@ -15,22 +15,25 @@ public class SortingNumbers {
 	public static List<Integer> placeHolderList = new ArrayList<Integer>();
 		
 	public static List<Integer> sort(List<Integer> array) {
-			//variable used in function
-			int smallestNumber = array.get(0);
-			int counter = array.size();
-			//sorting loop
-			while(counter != 0) {
-				for(int number = 1; number < counter; ++number) {
-					if(array.get(number) < smallestNumber) {
-						smallestNumber = array.get(number);
-						}
+		//variable used in function
+		int smallestNumber = array.get(0);
+		int counter = array.size();
+		//clear placeHolderList to make sure it is empty
+		placeHolderList.clear();
+		//sorting loop
+		while(counter != 0) {
+			for(int number = 1; number < counter; ++number) {
+				if(array.get(number) < smallestNumber) {
+					smallestNumber = array.get(number);
 					}
-				placeHolderList.add(smallestNumber);
-				array.remove(Integer.valueOf(smallestNumber));
-				if (array.size() != 0) {
-				smallestNumber = array.get(0);
 				}
-				counter--;}
+			placeHolderList.add(smallestNumber);
+			array.remove(Integer.valueOf(smallestNumber));
+			if (array.size() != 0) {
+			smallestNumber = array.get(0);
+			}
+			counter--;
+		}
 			//puts the numbers back into original list	
 			for (int number = 0; number < placeHolderList.size(); ++number) {
 				array.add(placeHolderList.get(number));
@@ -43,6 +46,7 @@ public class SortingNumbers {
 		
 		public static List<Integer> where(int numberToFind) {
 			//function to find where the value is in the list
+			placeHolderList.clear();
 			for(int number = 0; number < intList.size(); ++number) {
 				if(intList.get(number) == numberToFind) {
 					placeHolderList.add(number);
@@ -78,16 +82,19 @@ public class SortingNumbers {
 		//creates a list of 250 random digits between 1-2000
 		for(int howManyInserted = 0; howManyInserted < 250; howManyInserted ++  )
 			intList.add((int) ((Math.random()*2000) + 1));
+		//prints the unsorted list
+		System.out.println("Unsorted list");
+		System.out.println(intList);
+		//prints the sorted list
+		System.out.println("Sorted list");
+		System.out.println(sort(intList));
 		System.out.println("A random list of 250 numbers has been created please "
-				+ "enter a number to check if it is in the list(Between 0 and 2000");
+				+ "enter a number to check if it is in the list(Between 0 and 2000)");
 		//loop to get user guess of number in list
 		while (true){
 			//run function to get input
 			newNumber = properValueTest();
 			if (newNumber != 0) {
-				//prints the sorted list
-				System.out.println("Sorted list");
-				System.out.println(sort(intList));
 				//find where number is
 				where(newNumber);
 				//if none
@@ -96,12 +103,9 @@ public class SortingNumbers {
 				}
 				else {
 					//if user number exists
-					placeHolderList.clear();
-					//clears for later use
 					System.out.println("Your number exists in the following positions:");
 					//get where so it can print then clears it
 					System.out.println(where(newNumber));
-					placeHolderList.clear();
 					}
 				break;
 				}
