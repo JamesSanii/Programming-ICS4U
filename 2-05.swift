@@ -2,7 +2,7 @@
 //  main.swift
 //  This program tests the vehicle class
 //
-//  Created by Matthew Lourenco on 27/03/18.
+//  Created by James Sanii on 27/03/18.
 //  Copyright © 2018 MTHS. All rights reserved.
 //
 public class Vehicle {
@@ -66,7 +66,7 @@ public class Vehicle {
 }
 
 print("Vehicle 1")
-let vehicle1: Vehicle = try Vehicle(licensePlate: "ABCD123", colour: "Red")
+let vehicle1: Vehicle = Vehicle(licensePlate: "MTHS018", colour: "Red")
 print(vehicle1.getStatus())
 vehicle1.accelerate(n: 5)
 print(vehicle1.getStatus())
@@ -76,9 +76,9 @@ vehicle1.brake(n: 30)
 print(vehicle1.getStatus())
 
 print("\nVehicle 2")
-let vehicle2: Vehicle = try Vehicle(licensePlate: "BBBB222", colour: "Blue")
+let vehicle2: Vehicle = Vehicle(licensePlate: "ABCD123", colour: "Blue")
 print(vehicle2.getStatus())
-vehicle2.setLicensePlate(newPlate: "123ABCD")
+vehicle2.setLicensePlate(newPlate: "SWIFT12")
 print(vehicle2.getStatus())
 vehicle2.setColour(newColour: "Red")
 print(vehicle2.getStatus())
