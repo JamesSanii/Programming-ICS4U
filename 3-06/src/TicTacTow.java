@@ -3,32 +3,40 @@ import java.util.Scanner;
 import java.lang.*;
 public class TicTacTow {
 	
+	TicTacTow(){
+		int countDown = 0;
+		while (countDown < 9) {
+			board.add(Integer.toString(countDown));
+			countDown ++;
+		}
+	}
 	String userValue = "O";
 	String computerValue = "X";
-	String[] board = new String[] {"1","2","3","4","5","6","7","8","9"};
+	ArrayList<String> board = new ArrayList<String>();
+	
 	
 
-	public boolean whoWins(String[] theBoard, String playerValue) {
-		if (theBoard[0] == theBoard[1] && theBoard[0] == theBoard[2] && theBoard[0] == playerValue) {
+	public boolean whoWins(ArrayList<String> theBoard, String playerValue) {
+		if (theBoard.get(0) == theBoard.get(1) && theBoard.get(0) == theBoard.get(2) && theBoard.get(0) == playerValue) {
 			return true;
 			
 		}
-		else if (theBoard[3] == theBoard[4] && theBoard[3] == theBoard[4] && theBoard[3] == playerValue) {
+		else if (theBoard.get(3) == theBoard.get(4) && theBoard.get(3) == theBoard.get(4) && theBoard.get(3) == playerValue) {
 			return true;
 		}
-		else if (theBoard[6] == theBoard[7] && theBoard[6] == theBoard[8] && theBoard[6] == playerValue) {
+		else if (theBoard.get(6) == theBoard.get(7) && theBoard.get(6) == theBoard.get(8) && theBoard.get(6) == playerValue) {
 			return true;
 		}
-		else if (theBoard[3] == theBoard[4] && theBoard[3] == theBoard[4] && theBoard[3] == playerValue) {
+		else if (theBoard.get(3) == theBoard.get(4) && theBoard.get(3) == theBoard.get(5) && theBoard.get(3) == playerValue) {
 			return true;
 		}
-		else if (theBoard[0] == theBoard[3] && theBoard[0] == theBoard[6] && theBoard[0] == playerValue) {
+		else if (theBoard.get(0) == theBoard.get(3) && theBoard.get(0) == theBoard.get(6) && theBoard.get(0) == playerValue) {
 			return true;
 		}
-		else if (theBoard[1] == theBoard[4] && theBoard[1] == theBoard[7] && theBoard[1] == playerValue) {
+		else if (theBoard.get(1) == theBoard.get(4) && theBoard.get(1) == theBoard.get(7) && theBoard.get(1) == playerValue) {
 			return true;
 		}
-		else if (theBoard[2] == theBoard[5] && theBoard[2] == theBoard[8] && theBoard[2] == playerValue) {
+		else if (theBoard.get(2) == theBoard.get(5) && theBoard.get(2) == theBoard.get(8) && theBoard.get(2) == playerValue) {
 			return true;
 		}
 		else {
@@ -45,8 +53,8 @@ public class TicTacTow {
 			int userChoice = Integer.parseInt(x);
 			System.out.println(userChoice);
 			if (userChoice < 9 && userChoice > 0) {
-				if (board[userChoice - 1] != "X" || board[userChoice] != "O") {
-					board[userChoice - 1] = xOrO;
+				if (board.get(userChoice - 1) != "X" || board.get(userChoice - 1) != "O") {
+					board.set(userChoice - 1, xOrO);
 					validChoice = true;
 				}
 				
@@ -59,7 +67,7 @@ public class TicTacTow {
 		ArrayList<String> emptySpots=new ArrayList<String>(); 
 		int counter = 0;
 		while (counter < 9){
-			if (board[counter] != "X" || board[counter] != "O") {
+			if (board.get(counter) != "X" || board.get(counter) != "O") {
 				emptySpots.add(Integer.toString(counter));
 			}
 			counter++;
@@ -70,11 +78,11 @@ public class TicTacTow {
 	
 	
 	public void showGame() {
-		System.out.println(" " + board[0] + " | " + board[1] + " | " + board[2]);
+		System.out.println(" " + board.get(0) + " | " + board.get(1) + " | " + board.get(2));
 		System.out.println("---+---+---");
-		System.out.println(" " + board[3] + " | " + board[4] + " | " + board[5]);
+		System.out.println(" " + board.get(3) + " | " + board.get(4) + " | " + board.get(5));
 		System.out.println("---+---+---");
-		System.out.println(" " + board[6] + " | " + board[7] + " | " + board[8]);
+		System.out.println(" " + board.get(6) + " | " + board.get(7) + " | " + board.get(8));
 	}
 	
 	public int win(ArrayList<String> newBoard, String player) {
@@ -90,45 +98,45 @@ public class TicTacTow {
 			return 0;
 		}
 		
-		ArrayList<String> moves=new ArrayList<String>(); 
+		ArrayList<Move> moves=new ArrayList<Move>(); 
 		for(int i = 0; i < availSpots.size(); i++) {
-			ArrayList<String> possibleMoves = new ArrayList<String>();
-			possibleMoves = newBoard.clone(newBoard[availSpots[i]]);
-			
-		}
-		newBoard[availSpots[i]] = player;
-		if (player == "O") {
-			int result = win(newBoard, "X");
-			move.score = result.score;
-		}
-		else {
-			int result = win(newBoard, "O");
-			move.score = result.score;
+			Move move = new Move();
+			move.index = newBoard.get(Integer.parseInt(availSpots.get(i)));
+			newBoard.set(Integer.parseInt(availSpots.get(i)), player);
+			if (player == "O") {
+				int result = win(newBoard, "X");
+				move.score = result;
+			}
+			else {
+				int result = win(newBoard, "O");
+				move.score = result;
+			}
+		
+			newBoard.set(Integer.parseInt(availSpots.get(i)), move.index);
+			moves.add(move);
 		}
 		
-		newBoard[availSpots[i]] = move.index;
-		moves.add(move);
-		
-		int bestMove;
+		int bestMove = 0;
 		if(player == "O") {
 			int bestScore = -10000;
-			for (int i = 0; i < moves.length; i++) {
-				if(moves[i].score > bestScore) {
-					bestScore = moves[i].score;
+			for (int i = 0; i < moves.size(); i++) {
+				if(moves.get(i).score > bestScore) {
+					bestScore = moves.get(i).score;
 					bestMove = i;
 				}
 			}
 		}
 		else {
 			int bestScore = 10000;
-			for (int i = 0; i < moves.length; i++) {
-				if(moves[i].score > bestScore) {
-					bestScore = moves[i].score;
+			for (int i = 0; i < moves.size(); i++) {
+				if(moves.get(i).score > bestScore) {
+					bestScore = moves.get(i).score;
 					bestMove = i;
 				}
 			}
 		}
-		return moves[bestMove];
+		board.set(Integer.parseInt(moves.get(bestMove).index), player);
+		return 0;
 	}
 	}
 	

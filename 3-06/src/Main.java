@@ -5,6 +5,7 @@ public class Main {
 		System.out.println("Can you beat the unbeatable tic-tac-toe game");
 		game.showGame();
 		game.placement("X");
+		game.win(game.board, "O");
 		game.showGame();
 		game.placement("X");
 		game.showGame();
